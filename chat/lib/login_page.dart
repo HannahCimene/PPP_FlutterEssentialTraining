@@ -56,10 +56,20 @@ class LoginPage extends StatelessWidget {
                   color: Colors.blueAccent,
                   fontSize: 20),
             ),
-            Image.asset(
-              'assets/illustration.png',
+
+            verticalSpacing(24),
+
+            Container(
               height: 200,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.fitWidth,
+                      image: AssetImage('assets/illustration.png')),
+                  borderRadius: BorderRadius.circular(24)),
             ),
+
+            verticalSpacing(24),
 
             Form(
               key: _formkey,
@@ -111,7 +121,7 @@ class LoginPage extends StatelessWidget {
                 print('Link clicked!');
                 // if (!await launch(_mainUrl)) {
                 //   throw Exception('Could not launch');}
-                },
+              },
               child: Column(
                 children: [
                   Text('Find us on'),
