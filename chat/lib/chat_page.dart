@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:chat/models/chat_message_entity.dart';
+import 'package:chat/services/auth_service.dart';
 import 'package:chat/widgets/chat_bubble.dart';
 import 'package:chat/widgets/chat_input.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,6 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-
   // waiter.getmenu();
   // waiter.getTodaySpecialDish();
 
@@ -35,7 +35,7 @@ class _ChatPageState extends State<ChatPage> {
       setState(() {
         _messages = _chatMessages;
       });
-    }).then((_){
+    }).then((_) {
       print('Done!');
     });
 
@@ -79,10 +79,10 @@ class _ChatPageState extends State<ChatPage> {
                   itemCount: _messages.length,
                   itemBuilder: (context, index) {
                     return ChatBubble(
-                        alignment:
-                            _messages[index].author.userName == 'poojab26'
-                                ? Alignment.centerRight
-                                : Alignment.centerLeft,
+                        alignment: _messages[index].author.userName ==
+                                AuthService().getUserName()
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
                         entity: _messages[index]);
                   })),
           ChatInput(
