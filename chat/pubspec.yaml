@@ -37,6 +37,8 @@ dependencies:
 #  social_media_buttons: ^1.0.0
 #  google_fonts: ^6.2.1
 #  url_launcher: ^6.3.1
+  provider: ^6.1.2
+#  shared_preferences: ^2.5.1
 
 
 dev_dependencies:
