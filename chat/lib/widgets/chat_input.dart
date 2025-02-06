@@ -30,7 +30,14 @@ class ChatInput extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(context: context, builder: (BuildContext context) {
+                  return Padding(
+                    padding: const EdgeInsets.all(24.0),
+                    child: Text('Hello!'),
+                  );
+                });
+              },
               icon: Icon(
                 Icons.add,
                 color: Colors.white,
