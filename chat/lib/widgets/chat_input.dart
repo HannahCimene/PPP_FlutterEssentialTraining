@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class ChatInput extends StatelessWidget {
   final Function(ChatMessageEntity) onSubmit;
+
   ChatInput({super.key, required this.onSubmit});
 
   final chatMessageController = TextEditingController();
@@ -14,7 +15,8 @@ class ChatInput extends StatelessWidget {
         text: chatMessageController.text,
         id: '244',
         createdAt: DateTime.now().millisecondsSinceEpoch,
-        author: Author(userName: 'poojab26'));
+        //deze moet normaal [context.read<AuthService>().getUserName()] zijn maar doordat de context niet is meegegeven heb ik dit gehardcode
+        author: Author(userName: 'HannahCimene'));
 
     onSubmit(newChatMessage);
   }
@@ -31,12 +33,14 @@ class ChatInput extends StatelessWidget {
         children: [
           IconButton(
               onPressed: () {
-                showModalBottomSheet(context: context, builder: (BuildContext context) {
-                  return Padding(
-                    padding: const EdgeInsets.all(24.0),
-                    child: Text('Hello!'),
-                  );
-                });
+                showModalBottomSheet(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Padding(
+                        padding: const EdgeInsets.all(24.0),
+                        child: Text('Hello!'),
+                      );
+                    });
               },
               icon: Icon(
                 Icons.add,
